@@ -23,10 +23,8 @@ services:
       - "5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=task_app
-      - POSTGRES_USER=UG
-      - POSTGRES_PASSWORD=task_App
+    env_file:
+      - ./backend/.env.db
 
   frontend:
     build: ./frontend
