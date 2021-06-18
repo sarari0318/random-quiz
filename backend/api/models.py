@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.conf import settings
 
 
 class UserManager(BaseUserManager):
 
     def create_user(self, email, password=None, **extra_fields):
-
         if not email:
             raise ValueError('email is must')
 
@@ -23,6 +23,7 @@ class UserManager(BaseUserManager):
 
         return user
 
+
 class User(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(max_length=50, unique=True)
@@ -38,9 +39,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 class Quiz(models.Model):
-
     user = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='user',
     )
