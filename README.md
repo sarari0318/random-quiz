@@ -1,7 +1,7 @@
 # random-quiz
 
 ### Overview
-![demo](movies/random_quiz_demo.mov)
+![demo](movies/random_quiz_demo.gif)
 
 ### どんなアプリ？
 自分が解きたいオンライン上の問題を登録し、
